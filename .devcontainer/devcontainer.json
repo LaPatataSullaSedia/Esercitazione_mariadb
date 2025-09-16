@@ -1,19 +1,19 @@
 {
-    "name": "esercitazione-mariadb",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "angular.ng-template",
-                "dbaeumer.vscode-eslint"
-            ]
-        }
-    },
-    "postCreateCommand": "sudo apt update && sudo apt install mariadb-server -y && sudo service mariadb start"
-    "portsAttributes": {
-        "4200": {
-            "label": "Angular Dev Server",
-            "onAutoForward": "notify"
-        }
-    },
-    "forwardPorts": [4200]
+  "name": "esercitazione-mariadb",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "postCreateCommand": "sudo apt update && sudo apt install mariadb-server -y && sudo service mariadb start",
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "forwardPorts": [4200]
 }
