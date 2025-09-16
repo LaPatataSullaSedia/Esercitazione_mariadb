@@ -1,5 +1,5 @@
 {
-    "name": "fat ass nigga",
+    "name": "esercitazione-mariadb",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -8,8 +8,7 @@
             ]
         }
     },
-    "updateContentCommand":"sudo apt update",
-    "command.sh": "sudo apt install mariadb-server -y",
+    "postCreateCommand": "sudo apt update && sudo apt install mariadb-server -y && sudo service mariadb start"
     "portsAttributes": {
         "4200": {
             "label": "Angular Dev Server",
