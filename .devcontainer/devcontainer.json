@@ -1,0 +1,20 @@
+{
+    "name": "fat ass nigga",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "angular.ng-template",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "updateContentCommand":"sudo apt update",
+    "command.sh": "sudo apt install mariadb-server -y",
+    "portsAttributes": {
+        "4200": {
+            "label": "Angular Dev Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [4200]
+}
