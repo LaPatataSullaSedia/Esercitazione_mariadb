@@ -17,15 +17,14 @@ try:
 except mysql.connector.Error as err:
     print(f"Errore durante la creazione dell'utente: {err}")
 
-# Chiudi la connessione
 mycursor.close()
 mydb.close()
 
 try:
     mydb = mysql.connector.connect(
         host="localhost",
-        user="fatass",  # Ora l'utente fatass può connettersi
-        password="nigga"  # La password che hai impostato per l'utente 'fatass'
+        user="fatass",  
+        password="nigga"
     )
     mycursor = mydb.cursor()
 
