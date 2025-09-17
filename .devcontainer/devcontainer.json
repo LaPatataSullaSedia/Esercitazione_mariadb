@@ -9,7 +9,7 @@
       ]
     }
   },
-  "postCreateCommand": "sudo apt update && sudo apt install mariadb-server python3 python3-pip -y && sudo service mariadb start",
+  "postCreateCommand": "sudo apt update && sudo apt install mariadb-server python3 python3-pip -y && sudo service mariadb start && sudo npm install -g @angular/cli",
   "portsAttributes": {
     "4200": {
 
