@@ -9,7 +9,7 @@
       ]
     }
   },
-  "postCreateCommand": "sudo apt update && sudo apt install mariadb-server python3 python3-pip -y && sudo service mariadb start && sudo npm install -g @angular/cli",
+  "postStartCommand": "sudo chown -R vscode:vscode /workspace && sudo service mariadb start && sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS mydatabase; CREATE USER IF NOT EXISTS 'vscode'@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON mydatabase.* TO 'vscode'@'%'; FLUSH PRIVILEGES;\" && python3 .devcontainer/main.py",
   "portsAttributes": {
     "4200": {
 
