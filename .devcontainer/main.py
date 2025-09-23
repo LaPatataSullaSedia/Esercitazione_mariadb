@@ -1,37 +1,25 @@
 import mysql.connector
+import time
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="fatass",
-  password="nigga"
-)
-
-
-mycursor = mydb.cursor()
+print("Waiting for MariaDB to be ready...")
+time.sleep(3)
 
 try:
-    mycursor.execute("CREATE USER IF NOT EXISTS 'fatass'@'localhost' IDENTIFIED BY 'nigga';")
-    mycursor.execute("GRANT ALL PRIVILEGES ON *.* TO 'fatass'@'localhost' WITH GRANT OPTION;")
-    mycursor.execute("FLUSH PRIVILEGES;")
-    print("Utente 'fatass' creato con successo e privilegi concessi.")
-except mysql.connector.Error as err:
-    print(f"Errore durante la creazione dell'utente: {err}")
-
-mycursor.close()
-mydb.close()
-
-try:
-    mydb = mysql.connector.connect(
+    conn = mysql.connector.connect(
         host="localhost",
-        user="fatass",  
-        password="nigga"
+        user="vscode",
+        password="",  # empty password
+        database="mydatabase"
     )
-    mycursor = mydb.cursor()
+    cursor = conn.cursor()
 
-    mycursor.execute("SHOW DATABASES;")
-    print(mycursor.fetchall())
+    cursor.execute("CREATE TABLE IF NOT EXISTS test_table (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50));")
+    conn.commit()
 
-    mycursor.close()
-    mydb.close()
+    print("Database 'mydatabase' is ready and table 'test_table' created.")
 except mysql.connector.Error as err:
-    print(f"Errore durante la connessione come 'fatass': {err}")
+    print(f"Error: {err}")
+finally:
+    if 'conn' in locals() and conn.is_connected():
+        cursor.close()
+        conn.close()
